@@ -19,9 +19,9 @@ const getProduct = async () => {
 
 const getProduct2 = async () => {
   const response = await fetch("/products");
-  console.log("status", response.status);
+  console.log("status", response.status); // status 200 // header text/html; charset=utf-8
   console.log("header", response.headers.get("Content-Type"));
-  console.log("url", response.url);
+  console.log("url", response.url); // url http://localhost:5000/products
 };
 
 getProduct2();
@@ -33,7 +33,12 @@ const getProduct3 = async () => {
   const options = {
     method: "POST",
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: new URLSearchParams({ name, description, price, categories }),
+    body: new URLSearchParams({
+      name: "Caribbean Delight Coffee",
+      description: "Made by Manatee Coffee",
+      price: 11.99,
+      categories: "grocery",
+    }),
   };
   return fetch(url, options);
 };
